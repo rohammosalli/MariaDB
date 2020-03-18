@@ -38,9 +38,11 @@ ansible-vault edit mariadb/vars/private.yml
 if you wand to just deploy it please use this 
 
 ```bash
-ansible-playbook -i host.ini -b  main.yml --check --ask-vault-pass -K 
+ansible-playbook -i host.ini -b  main.yml --ask-vault-pass -K 
 ```
 
-use -K if you are sudoer user and if you use root user it's not required 
+to tun in dry-run pelase use this option --check
+
+use -K if you are sudoer user and if you use root user it's not erequired 
 
 and if you want to select you database name on backup script please chage this variable DATABASE_NAME on this path ```files/backup.sh```
