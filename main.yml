@@ -1,0 +1,5 @@
+- hosts: mariadb
+  become: true
+  gather_facts: True
+  roles:
+  - mariadb

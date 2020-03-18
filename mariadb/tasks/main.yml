@@ -1,0 +1,35 @@
+---
+# tasks file for mariadb
+- name: Install Python
+  raw: yum -y install python
+
+- name: Install epel-release repository if not already installe
+  yum:
+    name: epel-release
+    state: latest
+    update_cache: yes
+
+- name: Put SELinux in permissive mode
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: Install MariaDB
+  yum: name={{ item }} state=present
+  with_items:
+    - mariadb
+    - mariadb-server
+    - mariadb-devel
+    - MySQL-python
+    - libselinux-python
+  tags:
+    - database
+    
+
+- name: Ensure MariaDB is started and enabled on boot
+  service: name=mariadb state=started enabled=yes
+  tags:
+    - database
+
+- include: install.yml tags=database
+- include: crontab.yml

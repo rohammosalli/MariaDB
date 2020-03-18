@@ -1,0 +1,18 @@
+- name: Install a yum package in Ansible
+  yum:
+    name: crontabs
+    state: present
+- name: copy the script into node systems
+  copy:
+    src: backup.sh
+    dest: /root/backup.sh
+    mode: a+x 
+
+
+- name: create a cron in node systems
+  cron:
+      name: "Backup Cron"
+      user: "root"
+      minute: 01
+      hour: 00
+      job: "/usr/bin/sh /root/backup.sh 2>&1 > /tmp/backup.log"
