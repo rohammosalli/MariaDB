@@ -11,8 +11,8 @@ Requirements
 - An admin access (sudo) to the server.
 - copy you ssh-public-key to the server for sure 
 
-##### values
-if you want to change values you have to decrypt with a password and again please encrypt with ansible-vault the test password is ```amiramir```
+##### vars
+if you want to change vars you have to decrypt with a password and again please encrypt with ansible-vault the test password is ```amiramir```
 
 --------------
 ```bash
