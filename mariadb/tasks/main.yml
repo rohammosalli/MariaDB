@@ -1,18 +1,7 @@
 ---
 # tasks file for mariadb
-- name: Install Python
-  raw: yum -y install python
 
-- name: Install epel-release repository if not already installe
-  yum:
-    name: epel-release
-    state: latest
-    update_cache: yes
-
-- name: Put SELinux in permissive mode
-  selinux:
-    policy: targeted
-    state: permissive
+- include: base.yml tags=base
 
 - name: Install MariaDB
   yum: name={{ item }} state=present
