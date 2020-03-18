@@ -1,2 +1,0 @@
-[all]
-mariadb  ansible_ssh_host=51.158.73.117 ansible_ssh_port=22  ansible_user=root
